@@ -137,7 +137,6 @@ bool Simulator::initializeSimulation() {
 
 void Simulator::runSimulation() {
   ros::Rate r(CONFIG.updateRate);
-
   while (ros::ok()) {
     if (!robot_) {
       // setup the robot
@@ -151,9 +150,9 @@ void Simulator::runSimulation() {
     }
 
     if (!paused_) {
-      updateRobotPositionFromTF();
-      SCENE.moveAllAgents();
 
+        updateRobotPositionFromTF();
+        SCENE.moveAllAgents();
       publishAgents();
       publishGroups();
       publishRobotPosition();
